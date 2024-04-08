@@ -1,12 +1,8 @@
 import os
-import openai
-import docx
 import json 
 from PyPDF2 import PdfReader 
 from openai import OpenAI
-import warnings 
-import textract 
-import dotenv
+
 
 class score_model():
     def __init__(self):

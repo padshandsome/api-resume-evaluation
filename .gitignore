@@ -1,2 +1,4 @@
 test_pdf
 .env
+.github
+__pycache__
