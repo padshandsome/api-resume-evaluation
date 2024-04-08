@@ -1,0 +1,2 @@
+curl -X POST -F "pdf=@D:/startup/api-resume-evaluation/test_pdf/hang_guo_review_by_raymond.pdf" http://localhost:5000/evaluate
+
