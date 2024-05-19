@@ -6,14 +6,18 @@ from score import score_model
 app =  Flask(__name__)
 
 # This is the path to the directory where you want to save the uploaded files
-UPLOAD_FOLDER = './uploads'
+UPLOAD_FOLDER = os.path.join(os.getcwd(), 'uploads')
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 CORS(app, resources = {r"/evaluate/*": {"origins": "http://localhost:3000"}})
 
 @app.route('/evaluate', methods=['POST'])
 def evaluate():
-    print(request.files)
+    print("Request Headers:", request.headers)
+    print("Request Form:", request.form)
+    print("Request Files:", request.files)
+    
     if 'pdf' not in request.files:
         return jsonify({'message': 'No file part', 'api_response': 'Not valid for calling the api.'}), 400 
     file = request.files['pdf']
