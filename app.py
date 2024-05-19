@@ -13,7 +13,7 @@ CORS(app, resources = {r"/evaluate/*": {"origins": "http://localhost:3000"}})
 
 @app.route('/evaluate', methods=['POST'])
 def evaluate():
-    
+    print(request.files)
     if 'pdf' not in request.files:
         return jsonify({'message': 'No file part', 'api_response': 'Not valid for calling the api.'}), 400 
     file = request.files['pdf']
